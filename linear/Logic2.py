@@ -4,7 +4,7 @@ from sklearn.metrics import classification_report
 from sklearn import preprocessing
 
 # 数据是否需要标准化
-scale = True
+scale = False
 
 # 载入数据
 data = np.genfromtxt("../data/LR-testSet.csv", delimiter=",")
@@ -119,5 +119,5 @@ def predict(x_data, ws):
     return [1 if x >= 0.5 else 0 for x in sigmoid(xMat*ws)]
 
 predictions = predict(X_data, ws)
-
-print(classification_report(y_data, predictions))
+cr = classification_report(y_data, predictions)
+print(cr)
