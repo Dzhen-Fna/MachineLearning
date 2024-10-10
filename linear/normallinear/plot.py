@@ -4,6 +4,9 @@ from matplotlib import cm
 from matplotlib.ticker import LinearLocator
 from math_function import compute_error
 from os import listdir # 用于获取文件名
+
+plt.rcParams['font.sans-serif'] = ['SimHei'] # 用来正常显示中文标签
+plt.rcParams['axes.unicode_minus'] = False # 用来正常显示负号
 def get_csv_name(csv_path='./csv'):
     '''
     
@@ -42,7 +45,7 @@ def plot_surf(csv_file_name):
     # 添加颜色条
     fig.colorbar(surf, shrink=0.5, aspect=5)
     # 设置标题
-    ax.set_title('Surface plot of the error function')
+    ax.set_title('损失函数的表示')
     # 设置坐标轴标签
     ax.set_xlabel('B')
     ax.set_ylabel('K')
