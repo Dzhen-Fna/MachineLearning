@@ -1,0 +1,2 @@
+[决策树理论](https://blog.csdn.net/the_ZED/article/details/129290733?ops_request_misc=%257B%2522request%255Fid%2522%253A%252260A91E4B-0C14-45D6-A301-F1DBC4C9BB4A%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=60A91E4B-0C14-45D6-A301-F1DBC4C9BB4A&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-129290733-null-null.142^v100^pc_search_result_base5&utm_term=%E5%86%B3%E7%AD%96%E6%A0%91%E7%90%86%E8%AE%BA&spm=1018.2226.3001.4187) \
+[正则化](https://blog.csdn.net/weixin_41960890/article/details/104891561)
