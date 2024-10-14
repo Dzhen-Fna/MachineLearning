@@ -56,3 +56,6 @@ Y_{train} : Y_{test} = 0.8 : 0.2
 ## 3. KNN算法实现
 
 ![K-means算法的文件结构](./mdpic/KNN_self.png)
+
+# KNN_sk
+- 数据集介绍 _gauss.csv_

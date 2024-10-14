@@ -7,7 +7,7 @@ from sklearn import preprocessing
 scale = False
 
 # 载入数据
-data = np.genfromtxt("../data/LR-testSet.csv", delimiter=",")
+data = np.genfromtxt("LR-testSet.csv", delimiter=",")
 x_data = data[:, :-1]
 y_data = data[:, -1]
 

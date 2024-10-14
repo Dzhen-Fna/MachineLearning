@@ -8,7 +8,7 @@ from sklearn.preprocessing import PolynomialFeatures
 scale = False
 
 # 载入数据
-data = np.genfromtxt("../data/LR-testSet2.txt", delimiter=",")
+data = np.genfromtxt("LR-testSet2.txt", delimiter=",")
 x_data = data[:, :-1]
 y_data = data[:, -1, np.newaxis]
 

@@ -15,6 +15,10 @@ print('数据集大小：', len(x_train))
 plt.figure()
 plt.scatter(x_train[y_train == 0, 0], x_train[y_train == 0, 1], c='blue', marker='o')
 plt.scatter(x_train[y_train == 1, 0], x_train[y_train == 1, 1], c='red', marker='x')
+'''
+分类器
+依据ldata[2]中的取值进行分类展示
+'''
 plt.xlabel('X axis')
 plt.ylabel('Y axis')
 plt.show()
@@ -43,6 +47,7 @@ for i, k in enumerate(tqdm(ks)):
     # 绘制网格
     ax = fig.add_subplot(1, 3, i+1)
     ax.pcolormesh(xx, yy, y_pred.reshape(xx.shape), cmap=cmap_light)
+    # https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.pcolormesh.html#matplotlib.axes.Axes.pcolormesh
     ax.scatter(x_train[y_train == 0, 0], x_train[y_train == 0, 1], c='blue', marker='o')
     ax.scatter(x_train[y_train == 1, 0], x_train[y_train == 1, 1], c='red', marker='x')
     ax.set_xlabel('X axis')
