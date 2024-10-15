@@ -5,12 +5,13 @@ class config_():
     b_list = []
     k_list = []
     error_list = []
-    def __init__(self,epochs=100,lr=0.001,b=0,k=0):
+    def __init__(self,epochs=20,lr=0.01,b=0,k=0):
         self.epochs = epochs
         self.lr = lr
         self.b = b
         self.k = k
     def save_data(self):
+        print(self.lr)
         df = pd.DataFrame({'b':self.b_list,'k':self.k_list,'error':self.error_list})
         df.to_csv(f'./csv/nomallinear_{self.b_list[0]}_{self.k_list[0]}_{self.epochs}_{self.lr}.csv',index=False)
 
