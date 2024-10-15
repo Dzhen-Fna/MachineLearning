@@ -94,15 +94,14 @@ if scale == False:
     x_test = [[-4], [3]]
     y_test = (-ws[0] - x_test * ws[1]) / ws[2]
     plt.plot(x_test, y_test)
- # 画图决策边界
-    plot()
-    x_test = [[-4], [3]]
-    y_test = (-ws[0] - x_test * ws[1]) / ws[2]
-    plt.plot(x_test, y_test, 'k')
-    plt.show()
+plot()
+x_test = [[-4], [3]]
+y_test = (-ws[0] - x_test * ws[1]) / ws[2]
+plt.plot(x_test, y_test, 'k')
+plt.show()
 
 # 画图 loss值的变化
-x = np.linspace(0, 10000, 201)
+x = np.linspace(0, len(costList), 201)
 plt.plot(x, costList, c='r')
 plt.title('Train')
 plt.xlabel('Epochs')

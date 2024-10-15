@@ -34,7 +34,7 @@ def plot():
     plt.legend(handles=[scatter0, scatter1], labels=['label0', 'label1'], loc='best')
 
 
-plot()
+plot() # 展示数据
 plt.show()
 
 # 定义多项式回归,degree的值可以调节多项式的特征
