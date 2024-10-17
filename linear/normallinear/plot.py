@@ -74,10 +74,11 @@ def plot_error_grading(csv_file_name):
     ax.set_ylabel('K')
     ax.set_zlabel('Error')
     plt.show()
-for idx,ele in enumerate(get_csv_name()):
-    print(f'{idx} : {ele}')
-choose = int(input('选择需要绘图的文件\n'))
-plot_surf(get_csv_name()[choose])
-plot_linear(get_csv_name()[choose])
-plot_error_grading(get_csv_name()[choose])
+# for idx,ele in enumerate(get_csv_name()):
+#     print(f'{idx} : {ele}')
+# choose = int(input('选择需要绘图的文件\n'))
+for i in range(len(get_csv_name())):
+    plot_surf(get_csv_name()[i])
+    plot_linear(get_csv_name()[i])
+    plot_error_grading(get_csv_name()[i])
 

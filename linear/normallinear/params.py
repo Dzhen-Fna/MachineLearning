@@ -5,7 +5,7 @@ class config_():
     b_list = []
     k_list = []
     error_list = []
-    def __init__(self,epochs=20,lr=0.01,b=0,k=0):
+    def __init__(self,epochs=50,lr=0.01,b=0,k=0):
         self.epochs = epochs
         self.lr = lr
         self.b = b
