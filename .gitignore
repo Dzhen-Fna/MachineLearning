@@ -10,3 +10,9 @@ linear/normallinear/__pycache__/params.cpython-312.pyc
 机器学习_13974463.pdf - 快捷方式.lnk
 conv/AlexNetmy/__pycache__/showdatasets.cpython-37.pyc
 /conv/data/MNIST
+/conv/AlexNetmy/__pycache__
+/conv/GoogleLeNet
+/conv/ReNet18
+/conv/ReNet50
+/conv/VGG16
+/conv/VGG19
