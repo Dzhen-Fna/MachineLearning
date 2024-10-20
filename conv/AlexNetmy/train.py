@@ -8,19 +8,19 @@ from time import time
 
 
 def main_process(conf):
-    model = get_model((conf.model_name, conf.data_name), conf.use_cuda)
+    model = get_model(conf)
 
 
-    data_train_loader,data_valid_loader,data_test_loader = get_data(conf.model_name, conf.data_name, conf.batch_size,conf.ratio)
-    criterion, optimizer = get_criterionAndopti((conf.model_name,conf.data_name), model.parameters(),conf.lr)
+    data_train_loader,data_valid_loader,data_test_loader = get_data(conf)
+    criterion, optimizer = get_criterionAndopti(conf,model.parameters())
 
     for epoch in range(conf.epochs):
-        start = time()
+        
         train_loss = 0
         train_num = 0
         train_corrects = 0.0
         for batch_idx, (images, labels) in enumerate(tqdm(data_train_loader)):
-            
+            start = time() if batch_idx == 0 else start
             if conf.use_cuda:
                 images, labels = images.cuda(), labels.cuda()
             model.train()
@@ -40,11 +40,12 @@ def main_process(conf):
         conf.appendTrainTime(end - start)
         conf.showTrainStatus()
 
-        start = time()
+        
         valid_loss = 0
         valid_num = 0
         valid_corrects = 0.0
         for batch_idx, (images, labels) in enumerate(tqdm(data_valid_loader)):
+            start = time() if batch_idx == 0 else start
             if conf.use_cuda:
                 images, labels = images.cuda(), labels.cuda()
             model.eval()
@@ -63,9 +64,10 @@ def main_process(conf):
         
         test_corrects = 0.0
         test_num = 0
-        start = time()
+        
         with torch.no_grad():
             for batch_idx, (images, labels) in enumerate(tqdm(data_test_loader)):
+                start = time() if batch_idx == 0 else start
                 if conf.use_cuda:
                     images, labels = images.cuda(), labels.cuda()
                 model.eval()
@@ -78,14 +80,16 @@ def main_process(conf):
         conf.appendTestAcc(test_corrects.double().item() / test_num)
         conf.appendTestTime(end - start)
         conf.showTestStatus()
+
+        conf.saveCSV('./CSV/2024_10_20/')
                 
 if __name__ == '__main__':
     conf = Conf_(
     lr=0.01,
     use_cuda=True,
-    model_name='AlexNet',
+    model_name='ResNet18',
     data_name='MNIST',
-    epochs=10,
+    epochs=5,
     batch_size=100,
     ratio=0.8)
     main_process(conf)
