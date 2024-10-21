@@ -103,7 +103,7 @@ class Conf_():
         self.test_timeSplit = []
 
 # 检测可以运行的参数
-model_names = ['AlexNet','GoogleLeNet','ResNet18','ResNet50','VGG16','VGG19']
+model_names = ['AlexNet','GoogleLeNet','ResNet18','LeNet','VGG16']
 lrs = [0.0001,0.001,0.01,0.1]
 batch_sizes = [32,64,512]
 use_cuda = [True,False]
