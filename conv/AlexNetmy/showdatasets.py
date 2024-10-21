@@ -1,9 +1,8 @@
 import matplotlib.pyplot as plt
-from random import randint
 
 def getSingle(dataloader):
     dataiter = iter(dataloader)
-    images, labels = dataiter.next()
+    images, labels = dataiter.next() # 返回一个batch的数据 batch*channel*height*width
     return images[0], labels[0]
 
 
