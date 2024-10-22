@@ -3,14 +3,7 @@ from pandas import DataFrame as DF # 用于保存数据
 from itertools import product # 生成实验参数
 
 class Conf_():
-    train_acc = []
-    valid_acc = []
-    test_acc = []
-    train_loss = []
-    valid_loss = []
-    train_timeSplit = []
-    valid_timeSplit = []
-    test_timeSplit = []
+
     def __init__(self,lr,use_cuda,model_name,data_name,epochs,batch_size,ratio=0.8):
         self.lr = lr
         self.use_cuda = use_cuda and is_available()
@@ -19,6 +12,15 @@ class Conf_():
         self.epochs = epochs
         self.batch_size = batch_size
         self.ratio = ratio
+
+        self.train_acc = []
+        self.valid_acc = []
+        self.test_acc = []
+        self.train_loss = []
+        self.valid_loss = []
+        self.train_timeSplit = []
+        self.valid_timeSplit = []
+        self.test_timeSplit = []
     
     def getPicSize(self):
         '''
