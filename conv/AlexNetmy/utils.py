@@ -22,7 +22,7 @@ class Conf_():
     
     def getPicSize(self):
         '''
-        获取图片大小
+        获取图片大小，用于绘图，与训练函数无关
         '''
         judge = (self.data_name,self.model_name)
         if judge == ('MNIST','AlexNet'):

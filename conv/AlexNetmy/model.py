@@ -233,6 +233,23 @@ class VGG16(nn.Module):
         x = self.block6(x)
         return x
 
+class MLPNet(nn.Module):
+    def __init__(self):
+        super(MLPNet, self).__init__()
+        hidden_1 = 512
+        hidden_2 = 512
+        self.fc1 = nn.Linear(28*28, hidden_1)
+        self.fc2 = nn.Linear(hidden_1, hidden_2)
+        self.fc3 = nn.Linear(hidden_2, 10)
+        self.dropout = nn.Dropout(0.2)
+    def forward(self, x):
+        x = x.view(-1, 28*28)
+        x = F.relu(self.fc1(x))
+        x = self.dropout(x)
+        x = F.relu(self.fc2(x))
+        x = self.dropout(x)
+        x = self.fc3(x)
+        return x
 
 
 def get_model(conf):
@@ -249,6 +266,8 @@ def get_model(conf):
         model_= VGG16()
         model_.features[0] = nn.Conv2d(1, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
         model_.classifier[6] = nn.Linear(in_features=4096, out_features=10, bias=True)
+    elif judge == ('MLPNet','MNIST'):
+        model_ = MLPNet()
     return model_.cuda() if conf.use_cuda else model_
 
 def get_criterionAndopti(conf,model_parameters):
@@ -272,7 +291,9 @@ def get_criterionAndopti(conf,model_parameters):
     elif judge == ('VGG16','MNIST'):
         criterion = nn.CrossEntropyLoss()
         optimizer = optim.Adam(model_parameters, lr=conf.lr)
-
+    elif judge == ('MLPNet','MNIST'):
+        criterion = nn.CrossEntropyLoss()
+        optimizer = optim.Adam(model_parameters, lr=conf.lr)
 
     return criterion,optimizer
 if __name__ == '__main__':

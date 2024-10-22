@@ -81,13 +81,13 @@ def main_process(conf):
         conf.appendTestTime(end - start)
         conf.showTestStatus()
 
-        conf.saveCSV('./CSV/2024_10_20/')
+    conf.saveCSV('./CSV/2024_10_22/')
                 
 if __name__ == '__main__':
     conf = Conf_(
     lr=0.01,
     use_cuda=True,
-    model_name='ResNet18',
+    model_name='MLPNet',
     data_name='MNIST',
     epochs=5,
     batch_size=100,
