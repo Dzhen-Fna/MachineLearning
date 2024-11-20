@@ -12,7 +12,7 @@ def get_data(conf):
         data_train =MNIST('../data', train=True,download=True,transform=transforms.ToTensor())
         data_test = MNIST('../data', train=False,download=True,transform=transforms.ToTensor())
         data_train, data_valid = random_split(data_train, [round(ratio*len(data_train)), round((1-ratio)*len(data_train))])
-        train_loader = DataLoader(data_train,batch_size=batch_size)
+        data_train_loader = DataLoader(data_train,batch_size=batch_size)
         data_valid_loader = DataLoader(data_valid,batch_size=batch_size)
         data_test_loader = DataLoader(data_test,batch_size=batch_size,shuffle=True)
     else:
