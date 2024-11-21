@@ -2,7 +2,7 @@ import copy
 import time
 
 import torch
-from torchvision.datasets import FashionMNIST
+from torchvision.datasets import MNIST
 from torchvision import transforms
 import torch.utils.data as Data
 import numpy as np
@@ -13,7 +13,7 @@ import pandas as pd
 
 
 def train_val_data_process():
-    train_data = FashionMNIST(root='./data',
+    train_data = MNIST(root='../data',
                               train=True,
                               transform=transforms.Compose([transforms.Resize(size=227), transforms.ToTensor()]),
                               download=True)
